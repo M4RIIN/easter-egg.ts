@@ -1,7 +1,37 @@
 {
   "name": "easter-eggs.ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lightweight Node.js package designed to seamlessly integrate Easter eggs into your JavaScript or TypeScript web applications.",
+  "keywords": [
+    "Easter eggs",
+    "JavaScript",
+    "TypeScript",
+    "Web development",
+    "Frontend",
+    "Interactivity",
+    "Animation",
+    "GIFs",
+    "Images",
+    "Fun",
+    "Surprise",
+    "Delightful",
+    "Web applications",
+    "Integration",
+    "Lightweight",
+    "Node.js",
+    "Development tools",
+    "Easter themes",
+    "User experience",
+    "Creative coding"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your_username/easter-eggs-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your_username/easter-eggs-js/issues"
+  },
+  "homepage": "https://github.com/your_username/easter-eggs-js#readme",
   "main": "index.js",
   "scripts": {
     "test": "jest"
