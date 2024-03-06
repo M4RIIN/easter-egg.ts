@@ -1,7 +1,7 @@
 // utils.test.ts
 import { ActionHandler, CustomActionHandler } from './action.handler';
-import { EasterBuilder } from './easter.trigger.builder';
-import { addEventToShowMessage } from './index';
+import { EasterBuilder } from './easter.builder';
+import { ClickButtonTrigger } from './trigger.handler';
 
 function setupButtons() {
     document.body.innerHTML = '<button id="testButtonOne">Click Me</button>';
@@ -14,11 +14,12 @@ beforeEach(() => {
 });
 
 test('perfome action when button clicked in right order', () => {
-   const actionHandler : ActionHandler  = new CustomActionHandler(() => createDivResForTest("Cowabunga"));
-   const easterBuilder : EasterBuilder = new EasterBuilder(actionHandler)
+   const easterBuilder : EasterBuilder = new EasterBuilder()
+    .setTriggerHandler(new ClickButtonTrigger()
     .addClickTrigger("testButtonThree")
     .addClickTrigger("testButtonOne")
-    .addClickTrigger("testButtonTwo");
+    .addClickTrigger("testButtonTwo"))
+    .setActionHandler(new CustomActionHandler(() => createDivResForTest("Cowabunga")));
 
     // addEventToShowMessage(buttonId, message);
     const button3 = document.getElementById("testButtonThree");
@@ -35,11 +36,12 @@ test('perfome action when button clicked in right order', () => {
 });
 
 test('no perfome action when button clicked not in right order', () => {
-    const actionHandler : ActionHandler  = new CustomActionHandler(() => createDivResForTest("Cowabunga"));
-    const easterBuilder : EasterBuilder = new EasterBuilder(actionHandler)
-     .addClickTrigger("testButtonThree")
-     .addClickTrigger("testButtonOne")
-     .addClickTrigger("testButtonTwo");
+    const easterBuilder : EasterBuilder = new EasterBuilder()
+    .setTriggerHandler(new ClickButtonTrigger()
+    .addClickTrigger("testButtonThree")
+    .addClickTrigger("testButtonOne")
+    .addClickTrigger("testButtonTwo"))
+    .setActionHandler(new CustomActionHandler(() => createDivResForTest("Cowabunga")));
  
      const button1 = document.getElementById("testButtonOne");
      button1?.click();
