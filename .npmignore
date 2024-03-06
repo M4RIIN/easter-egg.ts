@@ -1,0 +1,7 @@
+.git
+.vscode
+lib
+tests
+*/tests
+/dist
+/node_modules
