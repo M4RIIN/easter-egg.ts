@@ -29,12 +29,12 @@ export class EasterBuilder implements Observer{
     //     return this;
     // }
 
-    setActionHandler(actionHandler:ActionHandler){
+    setActionHandler(actionHandler:ActionHandler):EasterBuilder{
         this.actionHandler = actionHandler;
         return this;
     }
     
-    setTriggerHandler(triggerHandler: TriggerHandler){
+    setTriggerHandler(triggerHandler: TriggerHandler):EasterBuilder{
         this.triggerHandler = triggerHandler;
         this.triggerHandler.addObserver(this);
         return this;
