@@ -1,6 +1,6 @@
 {
   "name": "easter-eggs.ts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A lightweight Node.js package designed to seamlessly integrate Easter eggs into your JavaScript or TypeScript web applications.",
   "keywords": [
     "Easter eggs",
