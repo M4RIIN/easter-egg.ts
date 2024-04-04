@@ -2,7 +2,7 @@ import { ActionHandler, EasterModalActionHandler } from "./action.handler";
 import { Observer } from "./observer";
 import { KeyboardInputTrigger, TriggerHandler } from "./trigger.handler";
 
-export class EasterBuilder implements Observer, EasterBuilder{
+export class EasterBuilder{
 
     private actionHandler: ActionHandler;
     private triggerHandler: TriggerHandler;
