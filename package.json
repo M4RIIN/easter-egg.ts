@@ -1,6 +1,6 @@
 {
   "name": "easter-eggs.ts",
-  "version": "1.0.5",
+  "version": "1.0.",
   "description": "A lightweight Node.js package designed to seamlessly integrate Easter eggs into your JavaScript or TypeScript web applications.",
   "keywords": [
     "Easter eggs",
@@ -26,12 +26,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your_username/easter-eggs-js.git"
+    "url": "git+https://github.com/M4RIIN/easter-egg.js.git"
   },
   "bugs": {
-    "url": "https://github.com/your_username/easter-eggs-js/issues"
+    "url": "https://github.com/M4RIIN/easter-egg.js/issues"
   },
-  "homepage": "https://github.com/your_username/easter-eggs-js#readme",
+  "homepage": "https://github.com/M4RIIN/easter-egg.js#readme",
   "scripts": {
     "test": "jest",
     "build": "tsc"
