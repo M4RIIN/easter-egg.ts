@@ -1,6 +1,6 @@
 {
   "name": "easter-eggs.ts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A lightweight Node.js package designed to seamlessly integrate Easter eggs into your JavaScript or TypeScript web applications.",
   "keywords": [
     "Easter eggs",
@@ -38,8 +38,8 @@
   },
   "author": "Nicolas MARIN",
   "license": "ISC",
-  "main": "dist/main.js",
-  "typings": "dist/main.d.ts",
+  "main": "./dist/main.js",
+  "typings": "./dist/main.d.ts",
   "files": [
     "dist/*.js",
     "dist/*.d.ts",
