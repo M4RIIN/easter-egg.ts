@@ -1,7 +1,10 @@
 // utils.test.ts
-import { ActionHandler, CustomActionHandler } from '../src/action.handler';
-import { EasterBuilder } from '../src/easter.builder';
-import { ClickButtonTrigger } from '../src/trigger.handler';
+
+import { CustomActionHandler } from "../src/actions";
+import { EasterBuilder } from "../src/easter.builder";
+import { ClickButtonTrigger } from "../src/triggers";
+
+
 
 function setupButtons() {
     document.body.innerHTML = '<button id="testButtonOne">Click Me</button>';

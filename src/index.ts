@@ -1,3 +1,4 @@
-export * from './action.handler'
-export * from './easter.builder'
-export * from './trigger.handler'
+export * from './actions';
+export * from './easter.builder';
+export * from './triggers';
+export * from './utils';

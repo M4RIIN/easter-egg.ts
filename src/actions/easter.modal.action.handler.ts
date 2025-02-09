@@ -1,18 +1,5 @@
+import { ActionHandler } from "./action.handler";
 
-export interface ActionHandler {
-    performAction() : void
-}
-
-export class CustomActionHandler implements ActionHandler {
-    private actionFunction = ()=>{};
-
-    constructor(actionFunction: () => void){
-        this.actionFunction = actionFunction;
-    }
-    performAction() {
-       this.actionFunction();
-    }
-}
 
 export class EasterModalActionHandler implements ActionHandler {
     
