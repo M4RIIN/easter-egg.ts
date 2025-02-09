@@ -10,7 +10,6 @@ export class CustomActionHandler implements ActionHandler {
         this.actionFunction = actionFunction;
     }
     performAction() {
-     console.log("la ca doit perfoemr mamene")
        this.actionFunction();
     }
 }
