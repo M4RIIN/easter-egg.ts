@@ -12,14 +12,18 @@ export class TriggerHandler implements Subject{
     }
 
     notifyObservers(): void {
+        console.log("obs", this.observers);
         this.observers.forEach(obs=>obs.perfomAction());
     }
 
 
     protected handleTrigger(id: any) {
+        console.log("handled ( ce qu'on recoit apres le handleTriger ), ", id)
+        console.log("expexcted", this.expectedTriggers)
         if (id === this.expectedTriggers[this.currentTriggerIndex]) {
             this.currentTriggerIndex++;
             if (this.currentTriggerIndex === this.expectedTriggers.length) {
+                console.log("emit notify observer")
                 this.notifyObservers();
                 this.reset();
             }
@@ -49,15 +53,21 @@ export class ClickButtonTrigger extends TriggerHandler{
 
 export class KeyboardInputTrigger extends TriggerHandler{
 
-    
+    constructor(){
+        super();
+        window.addEventListener('keydown', (event) => this.handleKeyboardInput(event));
+    }
+
     addKeyboardTrigger(key: string): KeyboardInputTrigger {
         this.expectedTriggers.push(key);
-        window.addEventListener('keydown', this.handleKeyboardInput);
+        console.log(this.expectedTriggers)
         return this;
     }
 
     private handleKeyboardInput = (event: KeyboardEvent) => {
-        const pressedKey = event.key;
+        console.log("l'event : ",event)
+        const pressedKey = event.code;
+        console.log("pressed key avant le HandleTrigger", pressedKey)
         this.handleTrigger(pressedKey);
     }
 
