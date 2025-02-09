@@ -12,18 +12,14 @@ export class TriggerHandler implements Subject{
     }
 
     notifyObservers(): void {
-        console.log("obs", this.observers);
         this.observers.forEach(obs=>obs.perfomAction());
     }
 
 
     protected handleTrigger(id: any) {
-        console.log("handled ( ce qu'on recoit apres le handleTriger ), ", id)
-        console.log("expexcted", this.expectedTriggers)
         if (id === this.expectedTriggers[this.currentTriggerIndex]) {
             this.currentTriggerIndex++;
             if (this.currentTriggerIndex === this.expectedTriggers.length) {
-                console.log("emit notify observer")
                 this.notifyObservers();
                 this.reset();
             }
@@ -65,9 +61,7 @@ export class KeyboardInputTrigger extends TriggerHandler{
     }
 
     private handleKeyboardInput = (event: KeyboardEvent) => {
-        console.log("l'event : ",event)
         const pressedKey = event.code;
-        console.log("pressed key avant le HandleTrigger", pressedKey)
         this.handleTrigger(pressedKey);
     }
 

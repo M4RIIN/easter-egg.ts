@@ -16,19 +16,9 @@ export class EasterBuilder implements Observer{
     }
 
     perfomAction(): void {
-        console.log("build on dis de perform")
         this.actionHandler.performAction();
     }
 
-
-    // addClickTrigger(id: string): EasterBuilder {
-    //     this.expectedClicks.push(id);
-    //     const button = document.getElementById(id);
-    //     if (button) {
-    //         button.addEventListener('click', () => this.handleClick(button.id));
-    //     }
-    //     return this;
-    // }
 
     setActionHandler(actionHandler:ActionHandler):EasterBuilder{
         this.actionHandler = actionHandler;
@@ -40,10 +30,5 @@ export class EasterBuilder implements Observer{
         this.triggerHandler.addObserver(this);
         return this;
     }
-
-    // setActionHandler(actionHandler:ActionHandler){
-    //     this.actionHandler = actionHandler;
-    //     return this;
-    // }
 }
 
