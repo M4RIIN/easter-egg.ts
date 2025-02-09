@@ -34,7 +34,7 @@
   "homepage": "https://github.com/M4RIIN/easter-egg.js#readme",
   "scripts": {
     "test": "jest",
-    "build": "tsc -b ./tsconfig.cjs.json",
+    "build": "tsc",
     "build_publish:local": "tsc && yalc publish"
   },
   "author": "Nicolas MARIN",
