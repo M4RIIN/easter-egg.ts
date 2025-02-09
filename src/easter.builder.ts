@@ -16,6 +16,7 @@ export class EasterBuilder implements Observer{
     }
 
     perfomAction(): void {
+        console.log("build on dis de perform")
         this.actionHandler.performAction();
     }
 

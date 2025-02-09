@@ -50,6 +50,6 @@ function createDivResForTest(message: string):void{
 }
 
 function simulateKeyPress(key: string) {
-    const event = new KeyboardEvent('keydown', { key: key });
+    const event = new KeyboardEvent('keydown', { code: key });
     window.dispatchEvent(event);
 }

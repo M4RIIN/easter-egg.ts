@@ -1,6 +1,6 @@
 {
   "name": "easter-eggs.ts",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "A lightweight Node.js package designed to seamlessly integrate Easter eggs into your JavaScript or TypeScript web applications.",
   "keywords": [
     "Easter eggs",
@@ -34,17 +34,31 @@
   "homepage": "https://github.com/M4RIIN/easter-egg.js#readme",
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "build_publish:local": "tsc && yalc publish"
   },
   "author": "Nicolas MARIN",
   "license": "ISC",
   "main": "dist/index.js",
-  "typings": "dist/main.d.ts",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "type": "module",
   "files": [
-    "dist/*.js",
-    "dist/*.d.ts",
-    "!**/*.map"
+    "dist"
   ],
+  "exports": {
+    ".":{
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",
     "@types/jest": "^29.5.12",
