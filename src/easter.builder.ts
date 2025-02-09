@@ -1,6 +1,7 @@
-import { ActionHandler, EasterModalActionHandler } from "./action.handler";
-import { Observer } from "./observer";
-import { KeyboardInputTrigger, TriggerHandler } from "./trigger.handler";
+import { ActionHandler, EasterModalActionHandler } from "./actions";
+import { TriggerHandler, KeyboardInputTrigger } from "./triggers";
+import { Observer } from "./utils";
+
 
 export class EasterBuilder implements Observer{
 

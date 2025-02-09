@@ -1,6 +1,7 @@
-import { ActionHandler, CustomActionHandler } from '../src/action.handler';
-import { EasterBuilder } from '../src/easter.builder';
-import { KeyboardInputTrigger } from '../src/trigger.handler';
+import { CustomActionHandler } from "../src/actions";
+import { EasterBuilder } from "../src/easter.builder";
+import { KeyboardInputTrigger } from "../src/triggers";
+
 
 function resetDOM() {
     document.body.innerHTML = '';
