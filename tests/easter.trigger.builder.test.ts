@@ -80,6 +80,26 @@ test('no perfome action when button clicked not in right order', () => {
     expect(messageDiv?.innerText).not.toBe("Cowabunga");
  });
 
+ test('perfome action when button clicked using times builder', () => {
+    const easterBuilder : EasterBuilder = new EasterBuilder()
+     .setTriggerHandler(new ClickButtonTrigger()
+     .addClickTrigger("testButtonThree", 3))
+     .setActionHandler(new CustomActionHandler(() => createDivResForTest("Cowabunga")));
+ 
+     // addEventToShowMessage(buttonId, message);
+     const button3 = document.getElementById("testButtonThree");
+     button3?.click();
+ 
+     const button1 = document.getElementById("testButtonThree");
+     button1?.click();
+ 
+     const button2 = document.getElementById("testButtonThree");
+     button2?.click();
+ 
+     const messageDiv : HTMLElement | null= document.getElementById('resDiv');
+     expect(messageDiv?.innerText).toBe("Cowabunga");
+ });
+
 function createDivResForTest(message: string):void{
     const div = document.createElement('div');
     div.id = 'resDiv';
