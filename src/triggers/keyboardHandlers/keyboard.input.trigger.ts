@@ -9,7 +9,6 @@ export class KeyboardInputTrigger extends TriggerHandler{
 
     addKeyboardTrigger(key: string): KeyboardInputTrigger {
         this.expectedTriggers.push(key);
-        console.log(this.expectedTriggers)
         return this;
     }
 
