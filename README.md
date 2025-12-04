@@ -68,6 +68,9 @@ Vous pouvez aussi créer vos propres triggers en héritant de `TriggerHandler` e
 - **MatrixEffectActionHandler** (`src/actions/matrix.action.handler.ts` + `src/actions/matrixEffect`)  
   Ajoute un `<canvas>` plein écran et lance une animation Matrix (pluie de caractères verts) jusqu’à appel de `stop()`.
 
+- **CashRainEffectActionHandler** (`src/actions/cash.rain.action.handler.ts` + `src/actions/cashRainEffect`)  
+  Fait tomber une trentaine de symboles `$` dorés pendant ~8 s (fond transparent) et déclenche le son `cash_machine.mp3` embarqué en base64—aucun loader Webpack/Vite supplémentaire n’est requis.
+
 Comme pour les triggers, vous pouvez créer vos actions en implémentant `ActionHandler`.
 
 ---
