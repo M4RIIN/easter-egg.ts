@@ -1,6 +1,6 @@
 # easter-eggs.ts 🥚✨
 
-`easter-eggs.ts` est un petit module TypeScript pensé pour ajouter des séquences secrètes à une application web. Vous définissez **quelles interactions doivent être réalisées** (clavier, boutons, etc.) et **quelle action doit être exécutée** une fois la combinaison réussie.
+`easter-eggs.ts` is a small TypeScript module designed to add secret sequences to a web app. You define **which interactions must be performed** (keyboard, buttons, etc.) and **which action should run** once the combo succeeds.
 
 ---
 
@@ -10,21 +10,21 @@
 npm install easter-eggs.ts
 ```
 
-Le package expose des types TypeScript et peut aussi être utilisé en JavaScript classique (ESM).
+The package ships TypeScript types and also works from plain JavaScript (ESM).
 
 ---
 
-## Principes clés
+## Key Concepts
 
-- **EasterBuilder** (`src/easter.builder.ts`) orchestre la relation entre un `TriggerHandler` (ce qui doit se passer) et un `ActionHandler` (ce qui est déclenché).
-- Les triggers héritent de `TriggerHandler` (`src/triggers/trigger.handler.ts`) et utilisent un pattern observateur : ils notifient le builder quand la séquence attendue est réalisée.
-- Les actions implémentent `ActionHandler` (`src/actions/action.handler.ts`) et contiennent la logique à exécuter (DOM, animations, etc.).
+- **EasterBuilder** (`src/easter.builder.ts`) orchestrates the relationship between a `TriggerHandler` (what has to happen) and an `ActionHandler` (what gets fired).
+- Triggers inherit from `TriggerHandler` (`src/triggers/trigger.handler.ts`) and follow an observer pattern: they notify the builder when the expected sequence is achieved.
+- Actions implement `ActionHandler` (`src/actions/action.handler.ts`) and contain the logic to run (DOM updates, animations, etc.).
 
-Tant que vous appelez `setTriggerHandler(...)` **et** `setActionHandler(...)`, le builder se charge d’attacher les événements et de déclencher l’action lorsque la séquence est correctement reproduite.
+As long as you call both `setTriggerHandler(...)` **and** `setActionHandler(...)`, the builder attaches the events and triggers the action once the sequence is completed correctly.
 
 ---
 
-## Démarrage rapide
+## Quick Start
 
 ```ts
 import {
@@ -35,47 +35,47 @@ import {
 
 new EasterBuilder()
   .setTriggerHandler(new KonamiTrigger()) // up, up, down, down...
-  .setActionHandler(new MatrixEffectActionHandler()); // pluie de caractères façon Matrix
+  .setActionHandler(new MatrixEffectActionHandler()); // Matrix-like rain of characters
 ```
 
-⚠️ `KeyboardInputTrigger` et `KonamiTrigger` utilisent la propriété `KeyboardEvent.code` (ex. `KeyA`, `ArrowUp`). Vérifiez que vous utilisez les bons identifiants.
+⚠️ `KeyboardInputTrigger` and `KonamiTrigger` rely on the `KeyboardEvent.code` property (e.g. `KeyA`, `ArrowUp`). Make sure you use the right identifiers.
 
 ---
 
-## Triggers disponibles
+## Available Triggers
 
 - **KeyboardInputTrigger** (`src/triggers/keyboardHandlers/keyboard.input.trigger.ts`)  
-  Empilez la séquence souhaitée via `addKeyboardTrigger("KeyA")`. Chaque touche ajoutée doit être pressée dans l’ordre. Toute erreur réinitialise la séquence.
+  Stack the desired sequence with `addKeyboardTrigger("KeyA")`. Every key you add must be pressed in order; any mistake resets the sequence.
 
 - **KonamiTrigger** (`src/triggers/keyboardHandlers/konami.trigger.ts`)  
-  Pré-configuration du fameux code Konami. S’instancie et fonctionne comme n’importe quel trigger clavier.
+  Preconfigures the famous Konami code. Instantiate it like any other keyboard trigger.
 
 - **ClickButtonTrigger** (`src/triggers/click.button.trigger.ts`)  
-  Idéal pour exiger une suite de clics sur des boutons identifiés (`id` DOM). Utilisez `addClickTrigger("myButton", 3)` pour exiger plusieurs clics consécutifs sur le même élément.
+  Ideal when you need a series of clicks on DOM buttons (`id` required). Use `addClickTrigger("myButton", 3)` to demand consecutive clicks on the same element.
 
-Vous pouvez aussi créer vos propres triggers en héritant de `TriggerHandler` et en utilisant `this.handleTrigger(...)` pour avancer dans la séquence.
+You can also build custom triggers by extending `TriggerHandler` and calling `this.handleTrigger(...)` to progress through the sequence.
 
 ---
 
-## Actions prêtes à l’emploi
+## Ready-Made Actions
 
 - **CustomActionHandler** (`src/actions/custom.action.handler.ts`)  
-  Accepte une fonction personnalisée : parfait pour déclencher votre propre logique applicative.
+  Accepts a custom function—perfect for running your own application logic.
 
 - **EasterModalActionHandler** (`src/actions/easter.modal.action.handler.ts`)  
-  Injecte un `<div>` contenant un GIF dans le `document.body`. Passez simplement l’URL lors de l’instanciation.
+  Injects a `<div>` containing a GIF into `document.body`. Just pass the URL when instantiating.
 
 - **MatrixEffectActionHandler** (`src/actions/matrix.action.handler.ts` + `src/actions/matrixEffect`)  
-  Ajoute un `<canvas>` plein écran et lance une animation Matrix (pluie de caractères verts) jusqu’à appel de `stop()`.
+  Adds a full-screen `<canvas>` and launches a Matrix-style animation (green character rain) until you call `stop()`.
 
 - **CashRainEffectActionHandler** (`src/actions/cash.rain.action.handler.ts` + `src/actions/cashRainEffect`)  
-  Fait tomber une trentaine de symboles `$` dorés pendant ~8 s (fond transparent) et déclenche le son `cash_machine.mp3` embarqué en base64—aucun loader Webpack/Vite supplémentaire n’est requis.
+  Drops around thirty golden `$` symbols for ~8s (transparent background) and plays the embedded base64 `cash_machine.mp3` sound—no extra Webpack/Vite loader required.
 
-Comme pour les triggers, vous pouvez créer vos actions en implémentant `ActionHandler`.
+As with triggers, you can create your own actions by implementing `ActionHandler`.
 
 ---
 
-## Exemple complet
+## Full Example
 
 ```ts
 import {
@@ -98,7 +98,7 @@ new EasterBuilder()
       .addClickTrigger("gamma")
   )
   .setActionHandler(
-    new CustomActionHandler(() => alert("Séquence validée 🎯"))
+    new CustomActionHandler(() => alert("Sequence validated 🎯"))
   );
 ```
 
@@ -106,31 +106,31 @@ new EasterBuilder()
 
 ## Tests
 
-Le projet utilise Jest + jsdom (voir `tests/*.test.ts`) pour simuler le DOM et vérifier les séquences.
+The project uses Jest + jsdom (see `tests/*.test.ts`) to simulate the DOM and validate the sequences.
 
 ```bash
 npm test
 ```
 
-Les tests fournis couvrent les combinaisons clavier et bouton et montrent comment simuler des événements (`button.click()`, `window.dispatchEvent(new KeyboardEvent(...))`).
+The provided tests cover keyboard/button combos and show how to simulate events (`button.click()`, `window.dispatchEvent(new KeyboardEvent(...))`).
 
 ---
 
-## Contribution
+## Contributing
 
-1. Forkez le dépôt, installez les dépendances et lancez `npm test`.
-2. Ajoutez vos triggers/actions.
-3. Soumettez une Pull Request.
+1. Fork the repo, install dependencies, and run `npm test`.
+2. Add your triggers/actions.
+3. Open a Pull Request.
 
-Toute suggestion d’effets visuels ou de nouvelles combinaisons est la bienvenue !
-
----
-
-## Licence
-
-MIT – voir [LICENSE](LICENSE).
+Suggestions for visual effects or new combos are always welcome!
 
 ---
 
-Bonnes chasses aux Easter eggs ! 🐇
+## License
+
+MIT – see [LICENSE](LICENSE).
+
+---
+
+Happy hunting for Easter eggs! 🐇
 
